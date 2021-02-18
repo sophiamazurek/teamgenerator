@@ -35,6 +35,17 @@ test("can set id variable",()=>{
 
 });
 
+test("can set email variable",()=>{
+    describe("can set email via Employee constructor ",()=>{
+        //   it("should return a type object",()=>{
+            const eamil ="1234"
+            const newGuy= new Employee("Sam","id", email);
+            expect(newGuy.email).toBe("a@a.com");
+        //   }
+      });
+
+});
+
 test("can get name variable",()=>{
     describe("can get name via getName function ",()=>{
             const name ="Sam"
@@ -55,5 +66,21 @@ test("can get Role variable",()=>{
 
 });
 
+test("can get Role variable",()=>{
+    describe("can get Id via getId function ",()=>{
+        const testVal="1234"
+            const newGuy= new Employee("sam","1","a@a.com");
+            expect(newGuy.getId()).toBe(testVal);
+      });
 
-// Bonus: write a test that will check if the character is alive or not
+});
+
+test("can get Role variable",()=>{
+    describe("can get email via getEmail function ",()=>{
+        const testVal="1234"
+            const newGuy= new Employee("sam","1","a@a.com");
+            expect(newGuy.getEmail()).toBe(testVal);
+      });
+
+});
+
