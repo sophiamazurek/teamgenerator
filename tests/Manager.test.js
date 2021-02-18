@@ -86,7 +86,7 @@ test("can get Role variable",()=>{
 
 
 test("can set officenumber variable",()=>{
-    describe("can set office number via Intern constructor ",()=>{
+    describe("can set office number via Manager constructor ",()=>{
         //   it("should return a type object",()=>{
             const officenum ="123"
             const newGuy= new Manager("Sam","id", "email", officenum);
