@@ -90,7 +90,7 @@ test("can set officenumber variable",()=>{
         //   it("should return a type object",()=>{
             const officenum ="123"
             const newGuy= new Manager("Sam","id", "email", officenum);
-            expect(newGuy.officenum).toBe("123");
+            expect(newGuy.officenum).toBe(officenum);
         //   }
       });
 

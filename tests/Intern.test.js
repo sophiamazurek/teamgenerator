@@ -87,7 +87,7 @@ test("can get Role variable",()=>{
 test("can get Role variable",()=>{
     describe("can get github via getGitHub function ",()=>{
         const testVal="Oshkosh"
-            const newGuy= new Intern("sam","1","a@a.com");
+            const newGuy= new Intern("sam","1","a@a.com",testVal);
             expect(newGuy.getSchool()).toBe(testVal);
       });
 
@@ -98,7 +98,7 @@ test("can set school variable",()=>{
         //   it("should return a type object",()=>{
             const school ="Oshkosh"
             const newGuy= new Intern("Sam","id", "email", school);
-            expect(newGuy.school).toBe("Oshkosh");
+            expect(newGuy.school).toBe(school);
         //   }
       });
 

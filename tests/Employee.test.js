@@ -50,7 +50,7 @@ test("can get name variable",()=>{
     describe("can get name via getName function ",()=>{
             const name ="Sam"
             const newGuy= new Employee(name,"1","a@a.com");
-            expect(newGuy.getName()).toBe("Sam");
+            expect(newGuy.getName()).toBe(name);
         //   }
       });
 
@@ -69,7 +69,7 @@ test("can get Role variable",()=>{
 test("can get Role variable",()=>{
     describe("can get Id via getId function ",()=>{
         const testVal="1234"
-            const newGuy= new Employee("sam","1","a@a.com");
+            const newGuy= new Employee("sam",testVal,"a@a.com");
             expect(newGuy.getId()).toBe(testVal);
       });
 
@@ -77,8 +77,8 @@ test("can get Role variable",()=>{
 
 test("can get Role variable",()=>{
     describe("can get email via getEmail function ",()=>{
-        const testVal="1234"
-            const newGuy= new Employee("sam","1","a@a.com");
+        const testVal="a@a.com"
+            const newGuy= new Employee("sam","1",testVal);
             expect(newGuy.getEmail()).toBe(testVal);
       });
 
