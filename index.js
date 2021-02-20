@@ -16,23 +16,23 @@ inquirer.prompt([
     {
         type: 'input',
         name: 'name',
-        message: 'name?'
+        message: 'What is your name?'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'email?'
+        message: 'What is the best email to contact you at?'
     },
     {
         type: 'input',
         name: 'id',
-        message: 'id?'
+        message: 'What is your work Id?'
     },
     {
         type: 'list',
         message: 'what is role?',
-        name: 'role',
-        choices: ['Engineer', 'HTML', 'Intern']     
+        name: 'What is your role here?',
+        choices: ['Engineer', 'Manager', 'Intern']     
      }
 ]).then(employeedata=>{
 
@@ -68,12 +68,12 @@ inquirer.prompt([
                 {
                     type: 'input',
                     name: 'github',
-                    message: 'github?'
+                    message: 'What is your GitHub?'
                 },
                
                 {
                     type: 'list',
-                    message: 'Is there anymore employees?',
+                    message: 'Are there anymore employees?',
                     name: 'isDone',
                     choices: ['Yes', 'No']     
                  }
@@ -107,6 +107,43 @@ inquirer.prompt([
     }
 
     function intern(employeedata){
+        console.log("inside intern fx");
+        console.log(employeedata)
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'school',
+                    message: 'Where did you got to school?'
+                },
+                {
+                    type: 'list',
+                    message: 'Are there anymore employees?',
+                    name: 'isDone',
+                    choices: ['Yes', 'No']     
+                 }
+        ]).then(interndata=>{
+            console.log(interndata)
+            //build out an intern
+            let newGuy=new Intern(employeedata.name,employeedata.id,employeedata.email,engineerdata.github)
+                //throw it into our array(results)    //save the response (first person)
+                results.push(newGuy)
+                console.log(results)
+            //if there are more ppl
+            if(engineerdata.isDone=="No"){
+                questions();
+                //rerun questions
+                //and keep on adding til your done
+            }else{
+            //once all q are done what should we do
+            //we need to call the templatebuild fx and pass the array (results)
+            //build out hte template
+            //display cards
+            //output final results
+
+            }
+
+
+
         //inquirer
             //school
             //ask if there are more ppl
