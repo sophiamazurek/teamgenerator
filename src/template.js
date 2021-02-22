@@ -35,7 +35,7 @@ function managerTemplate(employee){
     console.log("inside manager template");
     console.log(employee)
     //still having the same issue returning data. 
-    console.log(employee.getname());
+    console.log(employee.getName());
     console.log(`<div class="managercard card col mr-3 mb-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">${employee.getName()}</h5>
@@ -49,5 +49,22 @@ function managerTemplate(employee){
                 </div>`)
 }
 
+function internTemplate(employee){
+    console.log("inside intern template");
+    console.log(employee)
+    //same issue as above, will be fixing tomorrow with tutor
+    console.log(employee.getName());
+    console.log(`<div class="interncard card col mr-3 mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${employee.getName()}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Role: ${emplpyee.getRole()}</h6>
+                        <hr>
+                        <p class="card-text">ID: ${employee.getId()}</p><hr>
+                        <p class="card-text">School: ${employee.getSchool()} </p><hr>
+                        <hr>
+                        <a href="#" class="card-link">${employee.getEmail()}</a>
+                    </div>
+                </div>`)
+}
 
 module.exports = generateMarkdown;
