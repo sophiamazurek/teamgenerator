@@ -92,10 +92,17 @@ console.log(employeedata)
                 }else{
                 //once all q are done what should we do
                 //we need to call the templatebuild fx and pass the array (results)
-                console.log(generateMarkdown(results));
+                var htmltemplate=generateMarkdown(results);
                 //build out hte template
                 //display cards
                 //output final results
+                fs.writeFile("./dist/output.html",htmltemplate, function(err) {
+                    if (err) {
+                      return console.log(err);
+                    }
+              
+                    console.log('Success!');
+                  });
 
                 }
 
@@ -130,7 +137,7 @@ console.log(employeedata)
                 results.push(newGuy)
                 console.log(results)
             //if there are more ppl
-            if(engineerdata.isDone=="No"){
+            if(interndata.isDone=="Yes"){
                 questions();
                 //rerun questions
                 //and keep on adding til your done
@@ -190,7 +197,7 @@ console.log(employeedata)
                     results.push(newGuy)
                     console.log(results)
                 //if there are more ppl
-                if(engineerdata.isDone=="Yes"){
+                if(managerdata.isDone=="Yes"){
                     questions();
                     //rerun questions
                     //and keep on adding til your done
