@@ -5,6 +5,8 @@ var results=[];//hold all the ppl in the array
 const fs = require('fs');
 const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern')
+const Manager = require('./lib/Manager')
 let generateMarkdown = require('./src/template.js')
 
 //call in template.js
@@ -38,6 +40,10 @@ inquirer.prompt([
 console.log(employeedata)
     if(employeedata.role== "Engineer"){
         engineer(employeedata)
+    }
+
+    if(employeedata.role== "Intern"){
+        intern(employeedata)
     }
 })
     //name, id, email, role
@@ -132,7 +138,7 @@ console.log(employeedata)
         ]).then(interndata=>{
             console.log(interndata)
             //build out an intern
-            let newGuy=new Intern(employeedata.name,employeedata.id,employeedata.email,engineerdata.github)
+            let newGuy=new Intern(employeedata.name,employeedata.id,employeedata.email,interndata.school)
                 //throw it into our array(results)    //save the response (first person)
                 results.push(newGuy)
                 console.log(results)
@@ -143,10 +149,18 @@ console.log(employeedata)
                 //and keep on adding til your done
             }else{
             //once all q are done what should we do
-            //we need to call the templatebuild fx and pass the array (results)
-            //build out hte template
-            //display cards
-            //output final results
+                //we need to call the templatebuild fx and pass the array (results)
+                var htmltemplate=generateMarkdown(results);
+                //build out hte template
+                //display cards
+                //output final results
+                fs.writeFile("./dist/output.html",htmltemplate, function(err) {
+                    if (err) {
+                      return console.log(err);
+                    }
+              
+                    console.log('Success!');
+                  });
 
             }
 
@@ -170,7 +184,7 @@ console.log(employeedata)
         });
     }
 
-    function Manager(employeedata){
+    function manager(employeedata){
         console.log("inside manager fx");
         console.log(employeedata)
         //inquirer
